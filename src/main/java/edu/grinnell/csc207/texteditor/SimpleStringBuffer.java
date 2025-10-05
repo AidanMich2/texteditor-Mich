@@ -4,36 +4,89 @@ package edu.grinnell.csc207.texteditor;
  * A naive implementation of a text buffer using a <code>String</code>.
  */
 public class SimpleStringBuffer {
+    // private SimpleStringBuffer buff;
+    private int position;
+    private String str;
+    
+    // private int
+    public SimpleStringBuffer(){
+        this.position = 0;
+        this.str = "";
+    }
+    
     public void insert(char ch) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        String newStr = "";
+        for(int i = 0; i < position; i++){
+            newStr += str.charAt (i);
+        }
+        newStr += ch;
+        for(int i = position+1; i < str.length (); i++){
+            newStr += str.charAt (i);
+        }
+        this.str = newStr;
+        position++;
     }
 
     public void delete() {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        if (position != 0){
+            String newStr = "";
+            for(int i = 0; i < position-1; i++){
+                newStr += str.charAt (i);
+            }
+            for(int i = position+1; i < str.length (); i++){
+                newStr += str.charAt (i);
+            }
+            this.str = newStr;
+            position--;
+        }
     }
 
     public int getCursorPosition() {
-        throw new UnsupportedOperationException("Unimplemented method 'getCursorPosition'");
+        return position;
     }
 
     public void moveLeft() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
+        if (position == 0){
+            return;
+        }
+        position--;
     }
 
     public void moveRight() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
+        if (position == str.length ()){
+            return;
+        }
+        position++;
     }
 
     public int getSize() {
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
+        return str.length ();
     }
 
     public char getChar(int i) {
-        throw new UnsupportedOperationException("Unimplemented method 'getChar'");
+        if (i >= 0 && i < str.length ()){
+            return str.charAt (i);
+        }
+        else{
+            throw new IndexOutOfBoundsException ();
+        }
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Unimplemented method 'toString'");
+        if (str.equals (null)){
+            return "▮";
+        }
+        else {
+            String newStr = "";
+            for(int i = 0; i < position; i++){
+                newStr += str.charAt (i);
+            }
+            newStr += "▮";
+            for(int i = position; i < str.length (); i++){
+                newStr += str.charAt (i);
+            }
+            return newStr;   
+        }   
     }
 }
