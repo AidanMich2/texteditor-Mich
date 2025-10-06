@@ -1,6 +1,9 @@
 package edu.grinnell.csc207.texteditor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +58,27 @@ public class SimpleStringBufferTests {
         buffy.delete ();
         buffy.delete ();
         assertEquals ("▮", buffy.toString ());
+    }
+
+    @Test
+    public void checkGetChar (){
+        SimpleStringBuffer buffy = new SimpleStringBuffer ();
+        buffy.insert ('h');
+        buffy.insert ('e');
+        buffy.insert ('l');
+        buffy.insert ('l');
+        buffy.insert ('o');
+        buffy.delete ();
+        assertEquals ('e', buffy.getChar (1));
+    }
+
+   @Property
+    public boolean stringSize (@ForAll @IntRange(min = 0, max = 1000) int sz) {
+        SimpleStringBuffer buffy = new SimpleStringBuffer ();
+        for (int i = 0; i < sz; i++) {
+            buffy.insert ('h');
+        }
+        return buffy.getSize() == sz;
     }
 
 }
