@@ -9,24 +9,26 @@ public class GapBuffer {
     private char [] arr;
     private int firstIndexGap;
     private int firstAfterGap;
-    private int position;
 
     public GapBuffer (){
         this.size = 0;
-        this.sizeOfArray = 100;
+        this.sizeOfArray = 4;
         arr = new char [sizeOfArray];
-        this.position = 0;
+        this.firstIndexGap = 0;
+        this.firstAfterGap = sizeOfArray;
     }
     public void insert(char ch) {
-        if (firstAfterGap - firstIndexGap > 0){
+        // if (firstAfterGap - firstIndexGap > 0){
+        size++;
+        if (size != sizeOfArray){
             arr[firstIndexGap] = ch;
-            size++;
+            firstIndexGap++;
         }
         else{
             expand ();
             sizeOfArray = sizeOfArray *2;
             arr[firstIndexGap] = ch;
-            size++;
+            firstIndexGap++;
         }
     }
 
@@ -35,8 +37,8 @@ public class GapBuffer {
         for (int i = 0; i <= firstIndexGap; i++){
             newArray [i] = arr[i];
         }
-        firstAfterGap = sizeOfArray + firstIndexGap;
-        for (int i = firstAfterGap; i <= sizeOfArray; i++){
+        firstAfterGap = firstAfterGap *2;
+        for (int i = firstAfterGap; i < sizeOfArray; i++){
             newArray [i] = arr[i];
         }
         arr = newArray;
@@ -48,15 +50,21 @@ public class GapBuffer {
     }
 
     public int getCursorPosition() {
-        return position;
+        return firstIndexGap;
     }
 
     public void moveLeft() {
-        position--;
+        if (firstIndexGap == 0){
+            return;
+        }
+        arr [--firstAfterGap] = arr[--firstIndexGap];
     }
 
     public void moveRight() {
-        position++;
+        if (firstIndexGap == size){
+            return;
+        }
+        arr [++firstIndexGap] = arr[++firstAfterGap];
     }
 
     public int getSize() {
@@ -65,7 +73,12 @@ public class GapBuffer {
 
     public char getChar(int i) {
         if (i >= 0 && i < size){
-            return arr[i];
+            if (i < firstIndexGap){
+                return arr[i];
+            }
+            else{
+                return arr[i + firstAfterGap-firstIndexGap];
+            }
         }
         else{
             throw new IndexOutOfBoundsException ();
@@ -73,10 +86,14 @@ public class GapBuffer {
     }
 
     public String toString() {
+        if (getSize ()== 0){
+            return "▮";
+        }
         String str = "";
         for (int i = 0; i <firstIndexGap; i++){
             str += arr[i];
         }
+        str += "▮";
         for(int i = firstAfterGap; i< sizeOfArray; i++){
             str += arr[i];
         }
