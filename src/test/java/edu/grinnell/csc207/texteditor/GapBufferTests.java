@@ -62,6 +62,21 @@ public class GapBufferTests {
     }
 
     @Test
+    public void checkLeftExpanded (){
+        GapBuffer gappy = new GapBuffer ();
+        gappy.insert ('a');
+        gappy.insert ('b');
+        gappy.insert ('c');
+        gappy.insert ('d');
+        gappy.moveLeft ();
+        gappy.insert ('e');
+        gappy.insert ('f');
+        gappy.insert ('g');
+        gappy.insert ('h');
+        assertEquals ("abcefgh▮d", gappy.toString ());
+    }
+
+    @Test
     public void checkRight (){
         GapBuffer gappy = new GapBuffer ();
         gappy.insert ('a');
@@ -96,8 +111,10 @@ public class GapBufferTests {
         GapBuffer gappy = new GapBuffer ();
         gappy.insert ('a');
         gappy.insert ('b');
+        gappy.insert ('c');
+        gappy.insert ('d');
         gappy.delete ();
-        assertEquals ("a▮", gappy.toString ());
+        assertEquals ("abc▮", gappy.toString ());
     }
 
     @Test

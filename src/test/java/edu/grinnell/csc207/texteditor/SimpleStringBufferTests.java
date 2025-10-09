@@ -3,8 +3,6 @@ package edu.grinnell.csc207.texteditor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.LinkedList;
-
 import org.junit.jupiter.api.Test;
 
 import net.jqwik.api.ForAll;
