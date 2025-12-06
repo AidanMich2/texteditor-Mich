@@ -15,14 +15,14 @@ public class SimpleStringBufferTests {
     @Test
     public void emptyString (){
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        assertEquals ("▮", buffy.toString ());
+        assertEquals ("", buffy.toString ());
     }
 
     @Test
     public void addOne (){
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
         buffy.insert ('a');
-        assertEquals ("a▮", buffy.toString ());
+        assertEquals ("a", buffy.toString ());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class SimpleStringBufferTests {
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
         buffy.insert ('a');
         buffy.moveRight ();
-        assertEquals ("a▮", buffy.toString ());
+        assertEquals ("a", buffy.toString ());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class SimpleStringBufferTests {
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
         buffy.insert ('a');
         buffy.moveLeft ();
-        assertEquals ("▮a", buffy.toString ());
+        assertEquals ("a", buffy.toString ());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class SimpleStringBufferTests {
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
         buffy.insert ('a');
         buffy.delete ();
-        assertEquals ("▮", buffy.toString ());
+        assertEquals ("", buffy.toString ());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class SimpleStringBufferTests {
         buffy.insert ('a');
         buffy.delete ();
         buffy.delete ();
-        assertEquals ("▮", buffy.toString ());
+        assertEquals ("", buffy.toString ());
     }
 
     @Test

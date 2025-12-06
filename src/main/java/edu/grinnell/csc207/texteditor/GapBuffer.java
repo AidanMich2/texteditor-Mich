@@ -47,8 +47,10 @@ public class GapBuffer {
     }
 
     public void delete() {
-        firstIndexGap--;
-        size--;
+        if (size > 0){
+            firstIndexGap--;
+            size--;
+        }
     }
 
     public int getCursorPosition() {
