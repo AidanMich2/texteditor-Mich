@@ -67,7 +67,7 @@ public class GapBuffer {
     }
 
     public void moveRight() {
-        if (firstIndexGap == size){
+        if (firstIndexGap == size-1){
             return;
         }
         arr [++firstIndexGap] = arr[++firstAfterGap];

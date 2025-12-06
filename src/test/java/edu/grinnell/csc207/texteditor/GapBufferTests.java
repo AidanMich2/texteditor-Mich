@@ -6,6 +6,37 @@ import org.junit.jupiter.api.Test;
 
 public class GapBufferTests {
 
+    @Test
+    public void movement (){
+        GapBuffer gappy = new GapBuffer ();
+        gappy.insert ('h');
+        gappy.insert ('e');
+        gappy.insert ('l');
+        gappy.insert ('l');
+        gappy.insert ('o');
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveRight ();
+        gappy.moveRight ();
+        gappy.moveRight ();
+        gappy.moveRight ();
+        gappy.moveRight ();
+        gappy.moveRight ();
+        gappy.moveRight ();
+        gappy.moveRight ();
+        assertEquals ("a", gappy.toString ());
+    }
+
+
+
+
+
      @Test
     public void emptyString (){
         GapBuffer gappy = new GapBuffer ();

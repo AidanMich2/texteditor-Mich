@@ -17,6 +17,7 @@ public class SimpleStringBufferTests {
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
         assertEquals ("", buffy.toString ());
     }
+    
 
     @Test
     public void sizeTest (){
