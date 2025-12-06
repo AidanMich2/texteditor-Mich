@@ -23,13 +23,14 @@ public class SimpleStringBufferTests {
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
         buffy.insert ('a');
         buffy.insert ('b');
-        buffy.moveLeft ();
-        buffy.moveLeft ();
         buffy.insert ('c');
         buffy.insert ('d');
         buffy.insert ('e');
+        buffy.moveLeft ();
+        buffy.moveLeft ();
+        buffy.delete ();
 
-        assertEquals (5, buffy.getSize ());
+        assertEquals ("abde", buffy.toString ());
     }
 
     @Test

@@ -36,7 +36,7 @@ public class SimpleStringBuffer {
             for(int i = 0; i < position-1; i++){
                 newStr += str.charAt (i);
             }
-            for(int i = position+1; i < str.length (); i++){
+            for(int i = position; i < size; i++){
                 newStr += str.charAt (i);
             }
             this.str = newStr;
