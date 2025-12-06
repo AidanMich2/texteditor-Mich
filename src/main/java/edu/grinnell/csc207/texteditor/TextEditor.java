@@ -33,7 +33,7 @@ public class TextEditor {
             // textEditorContent = String.valueOf (buf.getChar (i));//I Aidan, looked up this function on javadocs (forgot how to convert from char to String)
         }
         screen.setCursorPosition(new TerminalPosition(buf.getCursorPosition(), 0));
-        screen.refresh ();
+        screen.refresh();
     }
     public static void main(String[] args) throws IOException{
         // TODO: fill me in with a text editor TUI!
@@ -62,20 +62,20 @@ public class TextEditor {
         while (isRunning) {
             KeyStroke stroke = screen.readInput();
             // TODO: Process the key stroke!
-            if (stroke.getKeyType ().equals (KeyType.Character)){
-                buf.insert (stroke.getCharacter ());
+            if (stroke.getKeyType().equals(KeyType.Character)){
+                buf.insert(stroke.getCharacter());
             }
-            else if (stroke.getKeyType ().equals (KeyType.ArrowLeft)){
-                buf.moveLeft ();
+            else if (stroke.getKeyType().equals(KeyType.ArrowLeft)){
+                buf.moveLeft();
             }
-            else if (stroke.getKeyType ().equals (KeyType.ArrowRight)){
-                buf.moveRight ();
+            else if (stroke.getKeyType().equals(KeyType.ArrowRight)){
+                buf.moveRight();
             }
-            else if (stroke.getKeyType ().equals (KeyType.Backspace)){
-                buf.delete ();
+            else if (stroke.getKeyType().equals (KeyType.Backspace)){
+                buf.delete();
                 screen.clear();
             }
-            else if (stroke.getKeyType ().equals (KeyType.Escape)){
+            else if (stroke.getKeyType().equals(KeyType.Escape)){
                 isRunning = false;
             }
             drawBuffer(buf, screen);

@@ -13,84 +13,84 @@ public class SimpleStringBufferTests {
     /** TODO: fill me in with unit and property tests! */
 
     @Test
-    public void emptyString (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        assertEquals ("", buffy.toString ());
+    public void emptyString() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        assertEquals("", buffy.toString());
     }
     
 
     @Test
-    public void sizeTest (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        buffy.insert ('a');
-        buffy.insert ('b');
-        buffy.insert ('c');
-        buffy.insert ('d');
-        buffy.insert ('e');
-        buffy.moveLeft ();
-        buffy.moveLeft ();
-        buffy.delete ();
+    public void sizeTest() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        buffy.insert('a');
+        buffy.insert('b');
+        buffy.insert('c');
+        buffy.insert('d');
+        buffy.insert('e');
+        buffy.moveLeft();
+        buffy.moveLeft();
+        buffy.delete();
 
-        assertEquals ("abde", buffy.toString ());
+        assertEquals("abde", buffy.toString());
     }
 
     @Test
-    public void addOne (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        buffy.insert ('a');
-        assertEquals ("a", buffy.toString ());
+    public void addOne() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        buffy.insert('a');
+        assertEquals("a", buffy.toString());
     }
 
     @Test
-    public void checkPosition (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        buffy.insert ('a');
-        buffy.moveRight ();
-        assertEquals ("a", buffy.toString ());
+    public void checkPosition() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        buffy.insert('a');
+        buffy.moveRight();
+        assertEquals("a", buffy.toString());
     }
 
     @Test
-    public void checkLeft (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        buffy.insert ('a');
-        buffy.moveLeft ();
-        assertEquals ("a", buffy.toString ());
+    public void checkLeft() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        buffy.insert('a');
+        buffy.moveLeft();
+        assertEquals("a", buffy.toString());
     }
 
     @Test
-    public void delete (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        buffy.insert ('a');
-        buffy.delete ();
-        assertEquals ("", buffy.toString ());
+    public void delete() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        buffy.insert('a');
+        buffy.delete();
+        assertEquals("", buffy.toString());
     }
 
     @Test
-    public void deleteAtZero (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        buffy.insert ('a');
-        buffy.delete ();
-        buffy.delete ();
-        assertEquals ("", buffy.toString ());
+    public void deleteAtZero() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        buffy.insert('a');
+        buffy.delete();
+        buffy.delete();
+        assertEquals("", buffy.toString());
     }
 
     @Test
-    public void checkGetChar (){
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
-        buffy.insert ('h');
-        buffy.insert ('e');
-        buffy.insert ('l');
-        buffy.insert ('l');
-        buffy.insert ('o');
-        buffy.delete ();
-        assertEquals ('e', buffy.getChar (1));
+    public void checkGetChar() {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
+        buffy.insert('h');
+        buffy.insert('e');
+        buffy.insert('l');
+        buffy.insert('l');
+        buffy.insert('o');
+        buffy.delete();
+        assertEquals('e', buffy.getChar(1));
     }
 
    @Property
-    public boolean stringSize (@ForAll @IntRange(min = 0, max = 1000) int sz) {
-        SimpleStringBuffer buffy = new SimpleStringBuffer ();
+    public boolean stringSize(@ForAll @IntRange(min = 0, max = 1000) int sz) {
+        SimpleStringBuffer buffy = new SimpleStringBuffer();
         for (int i = 0; i < sz; i++) {
-            buffy.insert ('h');
+            buffy.insert('h');
         }
         return buffy.getSize() == sz;
     }

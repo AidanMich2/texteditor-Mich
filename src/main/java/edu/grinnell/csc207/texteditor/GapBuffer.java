@@ -6,49 +6,48 @@ package edu.grinnell.csc207.texteditor;
 public class GapBuffer {
     private int size;
     private int sizeOfArray;
-    private static char [] arr;
+    private static char[] arr;
     private int firstIndexGap;
     private int firstAfterGap;
 
-    public GapBuffer (){
+    public GapBuffer() {
         this.size = 0;
         this.sizeOfArray = 4;
-        arr = new char [sizeOfArray];
+        arr = new char[sizeOfArray];
         this.firstIndexGap = 0;
         this.firstAfterGap = sizeOfArray;
     }
     public void insert(char ch) {
-        // if (firstAfterGap - firstIndexGap > 0){
         size++;
-        if (size != sizeOfArray){
+        if (size != sizeOfArray) {
             arr[firstIndexGap] = ch;
             firstIndexGap++;
         }
-        else{
-            expand ();
+        else {
+            expand();
             arr[firstIndexGap] = ch;
             firstIndexGap++;
         }
     }
 
-    public void expand (){
-        char [] newArray = new char [sizeOfArray * 2];
-        for (int i = 0; i < firstIndexGap; i++){
-            newArray [i] = arr[i];
+    public void expand() {
+        char [] newArray = new char[sizeOfArray * 2];
+        for (int i = 0; i < firstIndexGap; i++) {
+            newArray[i] = arr[i];
         }
         int temp = firstAfterGap;
         firstAfterGap += sizeOfArray;
         sizeOfArray = sizeOfArray *2;
-        for (int i = firstAfterGap; i < sizeOfArray; i++){
-            newArray [i] = arr[temp];
+        for (int i = firstAfterGap; i < sizeOfArray; i++) {
+            newArray[i] = arr[temp];
             temp++;
         }
         arr = newArray;
     }
 
     public void delete() {
-        if (size > 0){
-            if(firstIndexGap > 0){
+        if (size > 0) {
+            if (firstIndexGap > 0) {
                 firstIndexGap--;
                 size--;
             }
@@ -60,17 +59,17 @@ public class GapBuffer {
     }
 
     public void moveLeft() {
-        if (firstIndexGap == 0){
+        if (firstIndexGap == 0) {
             return;
         }
-        arr [--firstAfterGap] = arr[--firstIndexGap];
+        arr[--firstAfterGap] = arr[--firstIndexGap];
     }
 
     public void moveRight() {
-        if (firstIndexGap == size){
+        if (firstIndexGap == size) {
             return;
         }
-        arr [firstIndexGap++] = arr[firstAfterGap++];
+        arr[firstIndexGap++] = arr[firstAfterGap++];
     }
 
     public int getSize() {
@@ -78,8 +77,8 @@ public class GapBuffer {
     }
 
     public char getChar(int i) {
-        if (i >= 0 && i < size){
-            if (i < firstIndexGap){
+        if (i >= 0 && i < size) {
+            if (i < firstIndexGap) {
                 return arr[i];
             }
             else{
@@ -92,28 +91,28 @@ public class GapBuffer {
     }
 
     public String toString() {
-        if (getSize ()== 0){
+        if (getSize() == 0) {
             return "";
         }
         String str = "";
-        for (int i = 0; i < firstIndexGap; i++){
+        for (int i = 0; i < firstIndexGap; i++) {
             str += arr[i];
         }
-        for(int i = firstAfterGap; i< sizeOfArray; i++){
+        for (int i = firstAfterGap; i < sizeOfArray; i++) {
             str += arr[i];
         }
         return str;
     }
 
-    public int getFirstIndexGap (){
+    public int getFirstIndexGap() {
         return this.firstIndexGap;
     }
 
-    public int getFirstAfterGap (){
+    public int getFirstAfterGap() {
         return this.firstAfterGap;
     }
 
-    public int getSizeOfArray(){
+    public int getSizeOfArray() {
         return this.sizeOfArray;
     }
 }
