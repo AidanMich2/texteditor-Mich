@@ -89,13 +89,13 @@ public class GapBuffer {
 
     public String toString() {
         if (getSize ()== 0){
-            return "▮";
+            return "";
         }
         String str = "";
         for (int i = 0; i < firstIndexGap; i++){
             str += arr[i];
         }
-        str += "▮";
+        // str += "▮";
         for(int i = firstAfterGap; i< sizeOfArray; i++){
             str += arr[i];
         }

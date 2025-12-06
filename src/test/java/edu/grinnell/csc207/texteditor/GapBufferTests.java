@@ -9,7 +9,7 @@ public class GapBufferTests {
      @Test
     public void emptyString (){
         GapBuffer gappy = new GapBuffer ();
-        assertEquals ("▮", gappy.toString ());
+        assertEquals ("", gappy.toString ());
     }
 
     @Test
@@ -18,7 +18,7 @@ public class GapBufferTests {
         gappy.insert ('a');
         // gappy.insert ('b');
 
-        assertEquals ("a▮", gappy.toString ());
+        assertEquals ("a", gappy.toString ());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class GapBufferTests {
         gappy.insert ('c');
         gappy.insert ('d');
 
-        assertEquals ("abcd▮", gappy.toString ());
+        assertEquals ("abcd", gappy.toString ());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class GapBufferTests {
         gappy.insert ('c');
         gappy.insert ('d');
         gappy.moveLeft ();
-        assertEquals ("abc▮d", gappy.toString ());
+        assertEquals ("abcd", gappy.toString ());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class GapBufferTests {
         gappy.insert ('f');
         gappy.insert ('g');
         gappy.insert ('h');
-        assertEquals ("abcefgh▮d", gappy.toString ());
+        assertEquals ("abcefghd", gappy.toString ());
     }
 
     @Test
@@ -86,7 +86,7 @@ public class GapBufferTests {
         gappy.moveLeft ();
         gappy.moveLeft ();
         gappy.moveRight ();
-        assertEquals ("abc▮d", gappy.toString ());
+        assertEquals ("abcd", gappy.toString ());
     }
 
     @Test
@@ -95,7 +95,7 @@ public class GapBufferTests {
         gappy.insert ('a');
         gappy.moveLeft ();
         gappy.moveLeft ();
-        assertEquals ("▮a", gappy.toString ());
+        assertEquals ("a", gappy.toString ());
     }
 
     @Test
@@ -103,7 +103,7 @@ public class GapBufferTests {
         GapBuffer gappy = new GapBuffer ();
         gappy.insert ('a');
         gappy.moveRight ();
-        assertEquals ("a▮", gappy.toString ());
+        assertEquals ("a", gappy.toString ());
     }
 
     @Test
@@ -114,7 +114,7 @@ public class GapBufferTests {
         gappy.insert ('c');
         gappy.insert ('d');
         gappy.delete ();
-        assertEquals ("abc▮", gappy.toString ());
+        assertEquals ("abc", gappy.toString ());
     }
 
     @Test
@@ -122,14 +122,14 @@ public class GapBufferTests {
         GapBuffer gappy = new GapBuffer ();
         gappy.insert ('a');
         gappy.delete ();
-        assertEquals ("▮", gappy.toString ());
+        assertEquals ("", gappy.toString ());
     }
 
     @Test
     public void checkDeleteEmpty (){
         GapBuffer gappy = new GapBuffer ();
         gappy.delete ();
-        assertEquals ("▮", gappy.toString ());
+        assertEquals ("", gappy.toString ());
     }
 
     @Test
@@ -149,7 +149,7 @@ public class GapBufferTests {
         for (int i = 0; i < 9; i++){
             gappy.insert ('a');
         }
-        assertEquals ("aaaaaaaaa▮", gappy.toString ());
+        assertEquals ("aaaaaaaaa", gappy.toString ());
     }
 
     @Test

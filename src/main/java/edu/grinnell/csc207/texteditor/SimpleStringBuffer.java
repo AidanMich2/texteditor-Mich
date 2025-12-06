@@ -75,14 +75,14 @@ public class SimpleStringBuffer {
     @Override
     public String toString() {
         if (str.equals (null)){
-            return "▮";
+            return "";
         }
         else {
             String newStr = "";
             for(int i = 0; i < position; i++){
                 newStr += str.charAt (i);
             }
-            newStr += "▮";
+            // newStr += "▮";
             for(int i = position; i < str.length (); i++){
                 newStr += str.charAt (i);
             }
