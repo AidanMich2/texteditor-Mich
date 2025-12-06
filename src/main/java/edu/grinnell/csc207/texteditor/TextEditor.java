@@ -26,13 +26,20 @@ public class TextEditor {
      * @param screen is the screen we are drawing to.
      * @throws IOException
      */
-    public static void drawBuffer (GapBuffer buf, Screen screen) throws IOException{
-        for (int i = 0; i < buf.getSize (); i++) {
-            screen.setCharacter(i, 0, TextCharacter.fromCharacter(buf.getChar (i))[0]);
+    public static void drawBuffer(GapBuffer buf, Screen screen) throws IOException {
+        for (int i = 0; i < buf.getSize(); i++) {
+            screen.setCharacter(i, 0, TextCharacter.fromCharacter(buf.getChar(i))[0]);
         }
         screen.setCursorPosition(new TerminalPosition(buf.getCursorPosition(), 0));
         screen.refresh();
     }
+
+    /**
+     * Serves as an entry point for the program, is used to ultimately display the buffer
+     * that was created.
+     * @param args are command line arguments, but not used in this case.
+     * @throws IOException if there is an error during the screen display process.
+     */
     public static void main(String[] args) throws IOException {
         GapBuffer buf = new GapBuffer();
         Screen screen = new DefaultTerminalFactory().createScreen();   
@@ -46,7 +53,7 @@ public class TextEditor {
                 buf.moveLeft();
             } else if (stroke.getKeyType().equals(KeyType.ArrowRight)) {
                 buf.moveRight();
-            } else if (stroke.getKeyType().equals (KeyType.Backspace)) {
+            } else if (stroke.getKeyType().equals(KeyType.Backspace)) {
                 buf.delete();
                 screen.clear();
             } else if (stroke.getKeyType().equals(KeyType.Escape)) {

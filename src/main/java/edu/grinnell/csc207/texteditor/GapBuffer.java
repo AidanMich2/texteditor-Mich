@@ -115,7 +115,7 @@ public class GapBuffer {
             if (i < firstIndexGap) {
                 return arr[i];
             } else {
-                return arr[i + firstAfterGap-firstIndexGap];
+                return arr[i + firstAfterGap - firstIndexGap];
             }
         } else {
             throw new IndexOutOfBoundsException();
