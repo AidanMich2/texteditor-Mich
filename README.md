@@ -1,16 +1,25 @@
 # CSC 207: Text Editor
 
-**Author**: _(TODO: fill me in)_
+**Author**: Sam Beck and Aidan Michaelson
 
 ## Resources Used
 
-+ _(TODO: fill me in)_
-+ ...
++ Mentor Session
++ Googled some info on stack overflow for how to get the display working
 + ...
 
 ## Changelog
 
-_(TODO: fill me in with a log of your committed changes)_
+10/5: Finished up simpleString and most of the tests for simpleString
+10/5: Finished up the simpleStringBuffer tests and the readme for the simpleStringBuffer analyss
+10/5: finished draft of GapBuffer
+10/6: Finished up gabuffer and gapbuffer tests
+10/8: Got delete working, just added screen.clear
+11/6: removed the cursor character
+11/6: made size changes to strings and buffers
+11/6: Fixed movement for gap buffer
+11/6: Fixed some syntax errors
+11/6: Did readme
  
 
 ## Part 2 Analyzing simple string
