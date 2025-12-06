@@ -67,10 +67,10 @@ public class GapBuffer {
     }
 
     public void moveRight() {
-        if (firstIndexGap == size-1){
+        if (firstIndexGap == size){
             return;
         }
-        arr [++firstIndexGap] = arr[++firstAfterGap];
+        arr [firstIndexGap++] = arr[firstAfterGap++];
     }
 
     public int getSize() {
@@ -99,7 +99,6 @@ public class GapBuffer {
         for (int i = 0; i < firstIndexGap; i++){
             str += arr[i];
         }
-        // str += "▮";
         for(int i = firstAfterGap; i< sizeOfArray; i++){
             str += arr[i];
         }
@@ -116,83 +115,5 @@ public class GapBuffer {
 
     public int getSizeOfArray(){
         return this.sizeOfArray;
-    }
-
-
-    public static void main (String [] args){
-        GapBuffer buffy = new GapBuffer ();
-        // for (int i = 0; i < 4; i++){
-        //     buffy.insert ('a');
-        //     System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        //     System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        //     System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-        //     // System.out.println ("char at First after gap :" + buffy.getChar (buffy.getFirstAfterGap ()));
-        //     // System.out.println ("char at First after gap :" + arr [buffy.getFirstAfterGap ()]);
-        // }
-
-        // buffy.moveLeft ();
-        // System.out.println ("");
-        // System.out.println("MOVED LEFT");
-        // System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        //     System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        //     System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-        //     System.out.println ("char at First after gap :" + arr [buffy.getFirstAfterGap ()]);
-        // System.out.println ("");
-
-        // buffy.moveLeft ();
-        // System.out.println ("");
-        // System.out.println("MOVED LEFT");
-        // System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        //     System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        //     System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-        //     System.out.println ("char at First after gap :" + arr [buffy.getFirstAfterGap ()]);
-        // System.out.println ("");
-
-        
-        // for (int i = 0; i < 4; i++){
-        //     buffy.insert ('a');
-        //     System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        //     System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        //     System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-        //     // System.out.println ("char at First after gap :" + buffy.getChar (buffy.getFirstAfterGap ()));
-        //     System.out.println ("char at First after gap :" + arr [buffy.getFirstAfterGap ()]);
-        // }
-
-        buffy.insert ('a');
-        System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-
-        buffy.moveLeft ();
-        System.out.println ("");
-        System.out.println("MOVED LEFT");
-        System.out.print ("num of characters :" + buffy.getSize () + "   ");
-            System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-            System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-            System.out.println ("char at First after gap :" + arr [buffy.getFirstAfterGap ()]);
-        System.out.println ("");
-
-        buffy.insert ('b');
-        System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-        buffy.insert ('c');
-        System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-        buffy.insert ('d');
-        System.out.print ("num of characters :" + buffy.getSize () + "   ");
-        System.out.print ("First index gap :" +buffy.getFirstIndexGap () + "   ");
-        System.out.println ("First after gap :" + buffy.getFirstAfterGap ());
-
-        System.out.println(buffy.toString ());
-        // System.out.println(buffy.getChar (buffy.getFirstAfterGap ()));
-        // System.out.println(buffy.getChar (buffy.getSizeOfArray ()));
-        // System.out.println (buffy.getFirstAfterGap());
-        System.out.println ("size of array : " + buffy.getSizeOfArray ());
-        System.out.println ("Number of chars : " + buffy.getSize());
-        // for (int i = 0; i < buffy.getSizeOfArray ();i++){
-        //     System.out.println(arr[i]);
-        // }
     }
 }

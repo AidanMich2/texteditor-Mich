@@ -30,7 +30,7 @@ public class GapBufferTests {
         gappy.moveRight ();
         gappy.moveRight ();
         gappy.moveRight ();
-        assertEquals ("a", gappy.toString ());
+        assertEquals (5, gappy.getCursorPosition ());
     }
 
 
