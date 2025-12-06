@@ -48,8 +48,10 @@ public class GapBuffer {
 
     public void delete() {
         if (size > 0){
-            firstIndexGap--;
-            size--;
+            if(firstIndexGap > 0){
+                firstIndexGap--;
+                size--;
+            }
         }
     }
 

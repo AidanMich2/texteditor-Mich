@@ -5,11 +5,13 @@ package edu.grinnell.csc207.texteditor;
  */
 public class SimpleStringBuffer {
     // private SimpleStringBuffer buff;
+    private int size;
     private int position;
     private String str;
     
     // private int
     public SimpleStringBuffer(){
+        this.size = 0;
         this.position = 0;
         this.str = "";
     }
@@ -20,11 +22,12 @@ public class SimpleStringBuffer {
             newStr += str.charAt (i);
         }
         newStr += ch;
-        for(int i = position+1; i < str.length (); i++){
+        for(int i = position; i < str.length (); i++){
             newStr += str.charAt (i);
         }
         this.str = newStr;
         position++;
+        size++;
     }
 
     public void delete() {
@@ -38,6 +41,7 @@ public class SimpleStringBuffer {
             }
             this.str = newStr;
             position--;
+            size--;
         }
     }
 
@@ -60,7 +64,7 @@ public class SimpleStringBuffer {
     }
 
     public int getSize() {
-        return str.length ();
+        return size;
     }
 
     public char getChar(int i) {
@@ -79,13 +83,12 @@ public class SimpleStringBuffer {
         }
         else {
             String newStr = "";
-            for(int i = 0; i < position; i++){
+            for(int i = 0; i < size; i++){
                 newStr += str.charAt (i);
             }
-            // newStr += "▮";
-            for(int i = position; i < str.length (); i++){
-                newStr += str.charAt (i);
-            }
+            // for(int i = position; i < str.length (); i++){
+            //     newStr += str.charAt (i);
+            // }
             return newStr;   
         }   
     }

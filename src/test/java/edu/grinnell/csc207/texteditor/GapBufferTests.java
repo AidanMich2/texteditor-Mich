@@ -12,6 +12,30 @@ public class GapBufferTests {
         assertEquals ("", gappy.toString ());
     }
 
+
+     @Test
+    public void sizeTest (){
+        GapBuffer gappy = new GapBuffer ();
+        gappy.insert ('a');
+        gappy.insert ('b');
+        gappy.insert ('c');
+        gappy.insert ('d');
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        gappy.moveLeft ();
+        // gappy.moveLeft ();
+        gappy.delete ();
+        gappy.delete ();
+        gappy.delete ();
+        
+
+        // gappy.insert ('b');
+
+        assertEquals (3, gappy.getSize ());
+    }
+
+
+
     @Test
     public void addOne (){
         GapBuffer gappy = new GapBuffer ();

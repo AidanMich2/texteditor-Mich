@@ -19,6 +19,20 @@ public class SimpleStringBufferTests {
     }
 
     @Test
+    public void sizeTest (){
+        SimpleStringBuffer buffy = new SimpleStringBuffer ();
+        buffy.insert ('a');
+        buffy.insert ('b');
+        buffy.moveLeft ();
+        buffy.moveLeft ();
+        buffy.insert ('c');
+        buffy.insert ('d');
+        buffy.insert ('e');
+
+        assertEquals (5, buffy.getSize ());
+    }
+
+    @Test
     public void addOne (){
         SimpleStringBuffer buffy = new SimpleStringBuffer ();
         buffy.insert ('a');
